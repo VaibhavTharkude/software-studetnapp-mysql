@@ -1,0 +1,136 @@
+http://43.205.96.47:8080/student
+------------------------------------
+
+1. RDS Create (End point, username, password)
+2. Backend-server 
+	- java-11, tomcat 8
+	- student.war --> webapps
+	- mysql-connectors.jar --> lib
+	- config connector & RDS --> conf/context.xml
+	- catalina.sh --> bin (start/stop)
+3. Port whitelist 8080, 3306
+4. hist public ip/8080/studentapp
+5. context.xml
+
+	<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
+           maxTotal="500" maxIdle="30" maxWaitMillis="1000"
+           username="admin" password="admin1234" driverClassName="com.mysql.jdbc.Driver"
+           url="jdbc:mysql://backend-db.cd0q40ke6n8g.ap-south-1.rds.amazonaws.com:3306/studentapp?useUnicode=yes&amp;characterEncoding=utf8"/>
+
+6. CREATE TABLE if not exists students(student_id INT NOT NULL AUTO_INCREMENT,
+        student_name VARCHAR(100) NOT NULL,
+        student_addr VARCHAR(100) NOT NULL,
+        student_age VARCHAR(3) NOT NULL,
+        student_qual VARCHAR(20) NOT NULL,
+        student_percent VARCHAR(10) NOT NULL,
+        student_year_passed VARCHAR(10) NOT NULL,
+        PRIMARY KEY (student_id)
+);
+
+=========================================================================================
+
+
+# History
+
+
+root@ip-172-31-47-214:~/2-tier-architecture# history
+    1  ls
+    2  cd /opt/apache-tomcat-8.5.100/
+    3  ls
+    4  cd work/
+    5  ls
+    6  cd ..
+    7  ls
+    8  cd
+    9  ls
+   10  git clone https://github.com/chetansomkuwar/2-tier-architecture.git
+   11  lls
+   12  ls
+   13  cd 2-tier-architecture/
+   14  ls
+   15  ls /opt/apache-tomcat-8.5.100/webapps/
+   16  cp student.war /opt/apache-tomcat-8.5.100/webapps/
+   17  ls /opt/apache-tomcat-8.5.100/webapps/
+   18  ls
+   19  cd /opt/apache-tomcat-8.5.100/
+   20  ls
+   21  cd webapps/b
+   22  cd webapps/
+   23  ls
+   24  cd ..
+   25  ls
+   26  cd bin/
+   27  ls
+   28  ./catalina.sh start
+   29  java --version
+   30  apt install openjdk-11-jre-headless -y
+   31  java --version
+   32  ./catalina.sh start
+   33  sdo curl ifconfig.me.
+   34  sudo curl ifconfig.me.
+   35  ls
+   36  cd ..
+   37  ls
+   38  cd webapps/
+   39  ls
+   40  cd student/
+   41  ls
+   42  cat index.jsp
+   43  cd ..
+   44  ls
+   45  cd -
+   46  cd
+   47  ls
+   48  cd 2-tier-architecture/
+   49  ls
+   50  cp mysql-connector.jar /opt/apache-tomcat-8.5.100/lib/
+   51*
+   52  cd /opt/apache-tomcat-8.5.100/
+   53  ls
+   54  cd lib/
+   55  ls
+   56  cd ..
+   57  ls
+   58  cd conf/
+   59  ls
+   60  sudo vim context.xml
+   61  cd
+   62  cd 2-tier-architecture/
+   63  ls
+   64  cat student.sql
+   65  sudo vim student.sql
+   66  cd
+   67  history
+   68  ls
+   69  #mysql -h backend-db.cd0q40ke6n8g.ap-south-1.rds.amazonaws.com -u admin -p
+   70  cat 2-tier-architecture/student.sql
+   71  mysql -h backend-db.cd0q40ke6n8g.ap-south-1.rds.amazonaws.com -u admin -p
+   72  cd /opt/
+   73  ls
+   74  cd apache-tomcat-8.5.100/
+   75  ls
+   76  ./bin/catalina.sh stop
+   77  ./bin/catalina.sh start
+   78  ls
+   79  cd logs/
+   80  ls
+   81  cat catalina.out
+   82  cd ..
+   83  ls
+   84  cd conf/
+   85  ls
+   86  sudo vim context.xml
+   87  cd ..
+   88  ./bin/catalina.sh stop
+   89  ./bin/catalina.sh start
+   90  ls
+   91  mysql -h backend-db.cd0q40ke6n8g.ap-south-1.rds.amazonaws.com -u admin -p
+   92  ls
+   93  cd /opt/apache-tomcat-8.5.100
+   94  ls
+   95  cat conf/context.xml
+   96  cd
+   97  ls
+   98  cd 2-tier-architecture/
+   99  ls
+  100  cat student.sql
