@@ -8,7 +8,7 @@ stages {
         steps {
             script {
                 // Simulating a build step
-                git branch: 'main', url: 'https://github.com/Pratikshaguthalkar/jenkins_files.git'
+                git branch: 'main', url: 'https://github.com/VaibhavTharkude/software-studetnapp-mysql.gitz'
                 echo 'Building...'
             }
         }
